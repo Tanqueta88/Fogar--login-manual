@@ -1,7 +1,7 @@
-import unittest #libreria que ejecuta las pruebas propiamente dichas
-from selenium import webdriver #libreria que aporta a muchos lenguajes
-from pageindex import PageIndex
-from pageItems import PageItems
+import unittest
+from selenium import webdriver
+from pagelogin import PageLogin
+#from pageItems import PageItems
 import time
 
 
@@ -11,7 +11,7 @@ class SearchCases(unittest.TestCase): #las clases se definen con la palabra rese
         self.driver = webdriver.Chrome('/home/daniel/workspaces/fogar-testing/Automation - Clases/chromedriver')
         self.driver.get('https://preprod-guaranteefunds.mobeats.com.ar/#/')
         self.driver.implicitly_wait(5)
-        self.indexPage = PageIndex(self.driver)  # crea el objeto del tipo PageItems= indexPage
+        self.indexPage = PageLogin(self.driver)  # crea el objeto del tipo PageItems= indexPage
 
     def test_LG_PREP(self):  # los metodos se definen con la palabra reservada DEF
         self.indexPage.search('mfontenla')
